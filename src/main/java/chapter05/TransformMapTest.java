@@ -32,13 +32,7 @@ public class TransformMapTest {
         public String map(Event event) throws Exception {
             return event.user;
         }
-    }
-    //自定义MapFunction
-    public static class MyMapper12 implements MapFunction <Event,String>{
 
-        public String map(Event event) throws Exception {
-            return event.user;
-        }
     }
 }
 
