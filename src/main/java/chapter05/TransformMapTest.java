@@ -13,7 +13,11 @@ public class TransformMapTest {
         //从元素中读取数据
         DataStreamSource<Event> stream = env.fromElements(new Event("Mary","./home",1000l),
                 new Event("Bob","./cart",2000l),
-                new Event("Alice","./prod?id",3000l));
+                new Event("Alice","./prod?id",3000l),
+               new Event("Bob","./cart",2000l),
+                new Event("Alice","./prod?id",3000l))
+        ;
+
 
         //进行转换计算
         SingleOutputStreamOperator<String> result = stream.map(new MyMapper());
@@ -29,4 +33,12 @@ public class TransformMapTest {
             return event.user;
         }
     }
+    //自定义MapFunction
+    public static class MyMapper12 implements MapFunction <Event,String>{
+
+        public String map(Event event) throws Exception {
+            return event.user;
+        }
+    }
 }
+
