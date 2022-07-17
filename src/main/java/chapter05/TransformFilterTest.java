@@ -20,7 +20,9 @@ public class TransformFilterTest {
             public boolean filter(Event event) throws Exception {
                 return event.user.equals("Mary");
             }
-        })
+        });
+        //3.传入Lambda表达式
+        stream.filter(data->data.user.equals("Alice")).print("lambda: Alice click");
         filter.print();
         env.execute();
 
